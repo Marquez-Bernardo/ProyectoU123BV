@@ -40,7 +40,8 @@
         <Label Content="Usuario" HorizontalAlignment="Left" Margin="45,231,0,0" VerticalAlignment="Top"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="45,192,0,0" VerticalAlignment="Top"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="47,275,0,0" VerticalAlignment="Top" Height="23"/>
-        <Button Content="Guardar" HorizontalAlignment="Left" Margin="81,337,0,0" VerticalAlignment="Top" Background="#FF58E2A5" Click="Button_Editar"/>
+        <Button Content="Guardar" HorizontalAlignment="Left" Margin="49,337,0,0" VerticalAlignment="Top" Background="#FF58E2A5" Click="Button_Editar"/>
+        <Button Content="Crear" HorizontalAlignment="Left" Margin="121,337,0,0" VerticalAlignment="Top" Background="#FF58E2A5" Click="Button_Click_1" Width="46"/>
 
     </Grid>
 </Window>

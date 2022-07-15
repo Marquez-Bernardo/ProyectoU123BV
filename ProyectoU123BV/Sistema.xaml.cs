@@ -84,8 +84,30 @@ namespace ProyectoU123BV
                 _context.Entry(eliminar).State = EntityState.Deleted;
                 MessageBox.Show("Eliminacion de usuario exitosa");
                 _context.SaveChanges();
-
                 GetUsers();
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (txtNombre.Text == null && txtUser.Text == null && txtPassword.Text == null)
+            {
+                MessageBox.Show("Campos obligatorios vacios");
+            }else
+            {
+                Usuario crear = new Usuario();
+                using (var _context = new AplicationdbContext())
+                {
+                    crear.Nombre = txtNombre.Text;
+                    crear.User = txtUser.Text;
+                    crear.Password = txtPassword.Text;
+                    _context.Add(crear);
+                    _context.SaveChanges();
+                    GetUsers();
+                    txtNombre.Clear();
+                    txtUser.Clear();
+                    txtPassword.Clear();
+                }
             }
         }
     }
