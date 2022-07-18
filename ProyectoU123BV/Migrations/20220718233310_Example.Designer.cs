@@ -8,7 +8,7 @@ using ProyectoU123BV.Context;
 namespace ProyectoU123BV.Migrations
 {
     [DbContext(typeof(AplicationdbContext))]
-    [Migration("20220713190235_Example")]
+    [Migration("20220718233310_Example")]
     partial class Example
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,10 +18,28 @@ namespace ProyectoU123BV.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.10");
 
+            modelBuilder.Entity("ProyectoU123BV.Modelo.Roles", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+                });
+
             modelBuilder.Entity("ProyectoU123BV.Modelo.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("FKRol")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")
@@ -38,7 +56,20 @@ namespace ProyectoU123BV.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FKRol");
+
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("ProyectoU123BV.Modelo.Usuario", b =>
+                {
+                    b.HasOne("ProyectoU123BV.Modelo.Roles", "Roles")
+                        .WithMany()
+                        .HasForeignKey("FKRol")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Roles");
                 });
 #pragma warning restore 612, 618
         }

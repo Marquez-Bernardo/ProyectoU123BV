@@ -52,7 +52,8 @@ namespace ProyectoU123BV
                 
                 
                 }
-                
+                txtUser.Clear();
+                txtPassword.Clear();
 
             }
             catch (Exception ex)

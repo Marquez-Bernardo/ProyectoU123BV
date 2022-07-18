@@ -90,11 +90,6 @@ namespace ProyectoU123BV
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (txtNombre.Text == null && txtUser.Text == null && txtPassword.Text == null)
-            {
-                MessageBox.Show("Campos obligatorios vacios");
-            }else
-            {
                 Usuario crear = new Usuario();
                 using (var _context = new AplicationdbContext())
                 {
@@ -108,7 +103,6 @@ namespace ProyectoU123BV
                     txtUser.Clear();
                     txtPassword.Clear();
                 }
-            }
         }
     }
 }
